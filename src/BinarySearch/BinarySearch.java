@@ -23,4 +23,23 @@ public class BinarySearch {
         return -1;
     }
 
+    /*
+    Another method to achieve binary search
+     */
+    public static int binarySearchAlternative(int[] arr, int target){
+        int i = 0;
+        int j = arr.length;
+        while (i < j){ //Avoid falling into an infinite loop when the target is not in the array
+            int m = (i + j) >>> 1;
+            if(target < arr[m]){
+                j = m;
+            } else if (arr[m] < target) {
+                i = m + 1;
+            }else {
+                return m;
+            }
+        }
+        return -1;
+    }
+
 }
