@@ -8,5 +8,5 @@ This repository is about data structure and algorithm for Java.
 
 ## Array
 
-
+[array](https://github.com/houyhOvO/DataStructureandAlgorithm/blob/main/src/Array/README.md)
 
