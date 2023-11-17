@@ -37,7 +37,7 @@ int[][] array = {
 }
 ```
 
-![Memory layout of a two-dimensional array](asset/memory_layout_of_two_dimensional_array.jpeg)
+![Memory layout of a two-dimensional array](../asset/memory_layout_of_two_dimensional_array.jpeg)
 
 
 
