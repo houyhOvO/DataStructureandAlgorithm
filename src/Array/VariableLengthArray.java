@@ -9,7 +9,7 @@ public class VariableLengthArray implements Iterable<Integer>{
 
     private int size = 0;
     private int capacity = 8;
-    private int[] array = new int[capacity];
+    private int[] array = {};
 
     /**
      * Add an element to the end of the variable-length array
@@ -23,15 +23,29 @@ public class VariableLengthArray implements Iterable<Integer>{
 
     /**
      * Add an element to any position in the array
-     * @param index the index of the new element
+     * @param index the index of the new element, assume it is valid
      * @param element the element to be added
      */
     public void add(int index, int element){
+        checkAndGrow();
+
         if(index >= 0 && index < size){
             System.arraycopy(array, index, array, index + 1, size - index);
         }
         array[index] = element;
         size++;
+    }
+
+    private void checkAndGrow() {
+        //check the capacity
+        if(size == 0){
+            array = new int[capacity];
+        }else if(size == capacity){
+            capacity += capacity >>> 1;
+            int[] newArray = new int[capacity];
+            System.arraycopy(array,0, newArray,0, size);
+            array = newArray;
+        }
     }
 
     public int getElement(int index){
@@ -80,5 +94,19 @@ public class VariableLengthArray implements Iterable<Integer>{
      */
     public IntStream stream(){
         return IntStream.of(Arrays.copyOfRange(array, 0, size));
+    }
+
+    /**
+     * Remove an element from the array
+     * @param index the index of the element to be removed, assume it is valid
+     * @return the element to be removed
+     */
+    public int remove(int index){
+        int removed = array[index];
+        if(index < size - 1){
+            System.arraycopy(array, index + 1, array, index, size - index - 1);
+        }
+        size--;
+        return removed;
     }
 }

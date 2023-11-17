@@ -25,6 +25,20 @@ int[] array = {1, 2, 3, 4, 5};
 
 the size of array is `8 + 4 + 4 + 5 * 4 + 4(alignment)`
 
+## Two-dimensional Array
+
+For example,
+
+```Java
+int[][] array = {
+    {1, 2, 3, 4, 5},
+    {11, 12, 13, 14, 15},
+    {21, 22, 23, 24, 25},
+}
+```
+
+![Memory layout of a two-dimensional array](asset/memory_layout_of_two_dimensional_array.jpeg)
+
 
 
 
