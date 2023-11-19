@@ -25,6 +25,26 @@ int[] array = {1, 2, 3, 4, 5};
 
 the size of array is `8 + 4 + 4 + 5 * 4 + 4(alignment)`
 
+## Two-dimensional Array
+
+For example,
+
+```Java
+int[][] array = {
+    {11, 12, 13, 14, 15},
+    {21, 22, 23, 24, 25},
+    {31, 32, 33, 34, 35},
+}
+```
+
+![Memory layout of a two-dimensional array](../../asset/memory_layout_of_two_dimensional_array.jpeg)
+
+* The two-dimensional array occupied 32 bytes. Three elements, `array[0]`, `array[1]`, and `array[2]`, store references that point to three one-dimensional arrays respectively.
+* Each one-dimensional array occupies 40 bytes.
+* They are contiguous in memory layout.
+
+
+
 
 
 
