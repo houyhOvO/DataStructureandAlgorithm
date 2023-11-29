@@ -82,9 +82,7 @@ public class SinglyLinkedList implements Iterable<Integer>{
         }
 
         Node pointer;
-        for(pointer = head; pointer.next != null; pointer = pointer.next){
-
-        }
+        for(pointer = head; pointer.next != null; pointer = pointer.next){}
         return pointer;
     }
 
@@ -103,5 +101,51 @@ public class SinglyLinkedList implements Iterable<Integer>{
         last.next = new Node(value, null);
     }
 
+    /**
+     * Given an index, then find the corresponding node
+     * @param index the index of a node
+     * @return the node with the index
+     */
+    private Node findNode(int index){
+        int i = 0;
+        for(Node pointer = head; pointer != null; pointer = pointer.next, i++){
+            if(i == index){
+                return pointer;
+            }
+        }
+        return null;
+    }
 
+    /**
+     * Given an index, then find the value of the corresponding node
+     * @param index the index of a node
+     * @return the value of the node
+     */
+    public int getValue(int index) throws IllegalArgumentException{
+        Node node = findNode(index);
+        if(node == null){
+            throw new IllegalArgumentException(String.format("index [%d] is not valid\n", index));
+        }
+        return node.value;
+    }
+
+    /**
+     * Insert a node into the linked list
+     * @param index the insert position
+     * @param value the value of the node to be inserted
+     */
+    public void insert(int index, int value){
+        if(index == 0){
+            addFirst(value);
+            return;
+        }
+
+        Node previousNode = findNode(index - 1);
+        if(previousNode == null){
+            throw new IllegalArgumentException(String.format("index [%d] is not valid\n", index));
+        }
+
+        previousNode.next = new Node(value, previousNode.next);
+
+    }
 }

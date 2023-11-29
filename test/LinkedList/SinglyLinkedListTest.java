@@ -36,5 +36,53 @@ class SinglyLinkedListTest {
         for(Integer value : singlyLinkedList){
             System.out.println(value);
         }
+
+        assertIterableEquals(List.of(4, 3, 2, 1), singlyLinkedList);
+    }
+
+    @Test
+    void addLastTest() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.addLast(1);
+        singlyLinkedList.addLast(2);
+        singlyLinkedList.addLast(3);
+        singlyLinkedList.addLast(4);
+
+        assertIterableEquals(List.of(1, 2, 3, 4), singlyLinkedList);
+    }
+
+    @Test
+    void getValueTest() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.addLast(1);
+        singlyLinkedList.addLast(2);
+        singlyLinkedList.addLast(3);
+        singlyLinkedList.addLast(4);
+
+        assertEquals(3, singlyLinkedList.getValue(2));
+        assertThrows(IllegalArgumentException.class, () ->{
+            singlyLinkedList.getValue(10);
+        });
+    }
+
+    @Test
+    void insertTest() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.addLast(1);
+        singlyLinkedList.addLast(2);
+        singlyLinkedList.addLast(3);
+        singlyLinkedList.addLast(4);
+
+        singlyLinkedList.insert(2, 5);
+        assertIterableEquals(List.of(1, 2, 5, 3, 4), singlyLinkedList);
+
+        singlyLinkedList.insert(0, 0);
+        assertIterableEquals(List.of(0, 1, 2, 5, 3, 4), singlyLinkedList);
+
+        singlyLinkedList.insert(6, 8);
+//        assertThrows(IllegalArgumentException.class, () ->{
+//            for (Integer i : singlyLinkedList) {
+//            }
+//        });
     }
 }
