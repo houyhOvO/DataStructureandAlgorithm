@@ -148,4 +148,36 @@ public class SinglyLinkedList implements Iterable<Integer>{
         previousNode.next = new Node(value, previousNode.next);
 
     }
+
+    /**
+     * Remove the first node from the linked list
+     */
+    public void removeFirst() throws NullPointerException{
+        if(head == null){
+            throw new NullPointerException("The linked list is already empty!");
+        }
+        head = head.next;
+    }
+
+    /**
+     * Remove a node from the linked list
+     * @param index the index of the node removed
+     */
+    public void remove(int index){
+        if(index == 0){
+            removeFirst();
+            return;
+        }
+
+        Node previousNode = findNode(index - 1);
+        if(previousNode == null){
+            throw new IllegalArgumentException(String.format("index [%d] is not valid\n", index));
+        }
+
+        Node removedNode = previousNode.next;
+        if(removedNode == null){
+            throw new IllegalArgumentException(String.format("index [%d] is not valid\n", index));
+        }
+        previousNode.next = removedNode.next;
+    }
 }

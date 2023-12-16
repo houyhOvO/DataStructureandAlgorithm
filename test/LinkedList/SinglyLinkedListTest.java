@@ -85,4 +85,53 @@ class SinglyLinkedListTest {
 //            }
 //        });
     }
+
+
+    @Test
+    void removeFirstTest() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.addLast(1);
+        singlyLinkedList.addLast(2);
+        singlyLinkedList.addLast(3);
+        singlyLinkedList.addLast(4);
+
+        singlyLinkedList.removeFirst();
+        assertIterableEquals(List.of(2, 3, 4), singlyLinkedList);
+
+        singlyLinkedList.removeFirst();
+        assertIterableEquals(List.of(3, 4), singlyLinkedList);
+
+        singlyLinkedList.removeFirst();
+        assertIterableEquals(List.of(4), singlyLinkedList);
+
+        singlyLinkedList.removeFirst();
+        assertIterableEquals(List.of(), singlyLinkedList);
+
+        assertThrows(NullPointerException.class, singlyLinkedList::removeFirst);
+    }
+
+
+    @Test
+    void removeTest() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.addLast(1);
+        singlyLinkedList.addLast(2);
+        singlyLinkedList.addLast(3);
+        singlyLinkedList.addLast(4);
+
+        singlyLinkedList.remove(2);
+        assertIterableEquals(List.of(1, 2, 4), singlyLinkedList);
+
+        singlyLinkedList.remove(0);
+        assertIterableEquals(List.of(2, 4), singlyLinkedList);
+
+
+        assertThrows(IllegalArgumentException.class, () ->{
+            singlyLinkedList.remove(5);
+        });
+
+        assertThrows(IllegalArgumentException.class, () ->{
+            singlyLinkedList.remove(2);
+        });
+    }
 }
