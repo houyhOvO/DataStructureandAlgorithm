@@ -43,7 +43,7 @@ class BinarySearchTest {
         assertEquals(0, binarySearchLeftmost(a, 1));
         assertEquals(1, binarySearchLeftmost(a, 2));
         assertEquals(2, binarySearchLeftmost(a, 4));
-        assertEquals(3, binarySearchRightmost(a, 4));
+        assertEquals(4, binarySearchRightmost(a, 4));
         assertEquals(5, binarySearchLeftmost(a, 5));
         assertEquals(6, binarySearchLeftmost(a, 6));
         assertEquals(7, binarySearchRightmost(a, 6));
