@@ -24,10 +24,3 @@ There is a special node named sentinel node, also called dummy node, in a linked
 ![sentinel_node](../../asset/sentinel_node.jpeg)
 
 
-
-
-
-
-
-
-

@@ -134,4 +134,19 @@ class SinglyLinkedListTest {
             singlyLinkedList.remove(2);
         });
     }
+
+    @Test
+    void loop3Test() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.addLast(1);
+        singlyLinkedList.addLast(2);
+        singlyLinkedList.addLast(3);
+        singlyLinkedList.addLast(4);
+
+        singlyLinkedList.loop3(value ->{
+            System.out.println("before: " + value);
+        }, value -> {
+            System.out.println("after: " + value);
+        });
+    }
 }

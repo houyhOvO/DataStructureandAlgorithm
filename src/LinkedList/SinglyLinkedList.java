@@ -51,6 +51,25 @@ public class SinglyLinkedList implements Iterable<Integer>{
     }
 
     /**
+     * Use recursion to traversal the linked list
+     */
+    public void loop3(Consumer<Integer> before, Consumer<Integer> after){
+        recursion(head, before, after);
+    }
+
+
+    private void recursion(Node curr, Consumer<Integer> before, Consumer<Integer> after){
+        if(curr == null){
+            return;
+        }
+
+        before.accept(curr.value);
+        recursion(curr.next, before, after);
+        after.accept(curr.value);
+
+    }
+
+    /**
      * Use Iterable interface to traversal the linked list
      */
     @Override
@@ -180,4 +199,5 @@ public class SinglyLinkedList implements Iterable<Integer>{
         }
         previousNode.next = removedNode.next;
     }
+
 }
